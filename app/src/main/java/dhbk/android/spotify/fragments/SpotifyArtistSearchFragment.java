@@ -25,8 +25,15 @@ import butterknife.BindView;
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.adapters.ArtistSearchAdapter;
 import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
-import dhbk.android.spotify.models.Artist;
 import dhbk.android.spotify.utils.Utils;
+import kaaes.spotify.webapi.android.SpotifyApi;
+import kaaes.spotify.webapi.android.SpotifyService;
+import kaaes.spotify.webapi.android.models.Artist;
+import kaaes.spotify.webapi.android.models.ArtistsPager;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.android.MainThreadExecutor;
+import retrofit.client.Response;
 
 
 /**

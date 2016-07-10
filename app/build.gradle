@@ -35,20 +35,17 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
 
 //    network library
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+//    compile 'com.google.code.gson:gson:2.6.2'
+//    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+//    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.2.0'
 
 //    rxjava
-    compile 'io.reactivex:rxjava:1.1.6'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+//    compile 'io.reactivex:rxjava:1.1.6'
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 
-    // spotify music api
-// This library handles authentication and authorization
-    compile 'com.spotify.sdk:spotify-auth:1.0.0-beta12@aar'
-
-    // This library handles music playback
-    compile 'com.spotify.sdk:spotify-player:1.0.0-beta12@aar'
 }
 

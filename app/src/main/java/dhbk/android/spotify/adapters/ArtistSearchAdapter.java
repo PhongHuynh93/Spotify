@@ -11,8 +11,8 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dhbk.android.spotify.models.Artist;
 import dhbk.android.spotify.R;
+import kaaes.spotify.webapi.android.models.Artist;
 
 /**
  * Created by huynhducthanhphong on 7/10/16.
