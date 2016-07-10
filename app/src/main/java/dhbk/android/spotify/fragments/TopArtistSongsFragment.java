@@ -5,9 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,9 +15,9 @@ import java.util.Map;
 import java.util.concurrent.Executors;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.adapters.TopArtistTracksAdapter;
+import dhbk.android.spotify.interfaces.OnSearchArtistTopTracksListener;
 import kaaes.spotify.webapi.android.SpotifyApi;
 import kaaes.spotify.webapi.android.SpotifyService;
 import kaaes.spotify.webapi.android.models.Tracks;
@@ -32,7 +30,7 @@ import retrofit.client.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TopArtistSongsFragment extends BaseListFragment implements OnSearchArtistTopTracksListener  {
+public class TopArtistSongsFragment extends BaseListFragment implements OnSearchArtistTopTracksListener {
 
 
     @BindView(R.id.top_artist_songs_list)
