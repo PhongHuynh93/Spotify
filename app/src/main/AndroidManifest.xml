@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".SearcherActivity">
         </activity>
+        <activity android:name=".TopArtistSongsActivity">
+        </activity>
     </application>
 
 </manifest>
