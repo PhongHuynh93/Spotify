@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +25,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.adapters.ArtistSearchAdapter;
 import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
@@ -103,6 +107,13 @@ public class SpotifyArtistSearchFragment extends BaseListFragment {
         super.onViewCreated(view, savedInstanceState);
 
         artistAlbumsList.setAdapter(artistSearchAdapter);
+        artistAlbumsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Artist artist = (Artist) adapterView.getAdapter().getItem(i);
+                onSearchItemClickListener.onSearchItemClick(artist.id);
+            }
+        });
         // TODO: 7/10/16 start search on spotify
         startArtistSearch((EditText) view.findViewById(R.id.search_spotify_streamer), view.getContext());
     }
@@ -182,5 +193,13 @@ public class SpotifyArtistSearchFragment extends BaseListFragment {
         });
     }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.bind(this, rootView);
+        return rootView;
+    }
 
 }
