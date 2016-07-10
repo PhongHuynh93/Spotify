@@ -32,7 +32,7 @@ import retrofit.client.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TopArtistSongsFragment extends Fragment {
+public class TopArtistSongsFragment extends BaseListFragment implements OnSearchArtistTopTracksListener  {
 
 
     @BindView(R.id.top_artist_songs_list)
@@ -55,14 +55,23 @@ public class TopArtistSongsFragment extends Fragment {
         topArtistSongsAdapter = new TopArtistTracksAdapter();
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_top_artist_songs, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+    protected int fragmentLayoutResource() {
+        return R.layout.fragment_top_artist_songs;
     }
+
+    @Override
+    protected boolean activateRetainInstance() {
+        return true;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        topArtistSongsList.setAdapter(topArtistSongsAdapter);
+    }
+
 
     // TODO: 7/10/16 after search list of artist, listen when click a particle artist, open a top strack of that artist
     public void onSearchArtistTopTracks(String artistId) {
