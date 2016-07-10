@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import dhbk.android.spotify.R;
 import kaaes.spotify.webapi.android.models.Track;
@@ -30,7 +31,7 @@ public class TopArtistTracksAdapter extends CommonAdapter<Track> {
             topArtistSongsHolder = (TopArtistSongsHolder) view.getTag();
         }
 
-        if(getItems().get(i).album.images != null && getItems().get(i).album.images.get(1).url != null) {
+        if (getItems().get(i).album.images != null && getItems().get(i).album.images.get(1).url != null) {
             Picasso.with(viewGroup.getContext())
                     .load(getItems().get(i).album.images.get(1).url)
                     .into(topArtistSongsHolder.artistImage);
@@ -41,15 +42,18 @@ public class TopArtistTracksAdapter extends CommonAdapter<Track> {
         return view;
     }
 
-    public static class TopArtistSongsHolder {
-        @InjectView(R.id.artist_image)
-        ImageView artistImage;
-        @InjectView(R.id.artist_song_name)
-        TextView artistSongName;
-        @InjectView(R.id.artist_album_name) TextView artistAlbumName;
+//
 
-        public TopArtistSongsHolder(View view){
-            ButterKnife.inject(this,view);
+    static class TopArtistSongsHolder {
+        @BindView(R.id.artist_image)
+        ImageView artistImage;
+        @BindView(R.id.artist_song_name)
+        TextView artistSongName;
+        @BindView(R.id.artist_album_name)
+        TextView artistAlbumName;
+
+        TopArtistSongsHolder(View view) {
+            ButterKnife.bind(this, view);
         }
     }
 }

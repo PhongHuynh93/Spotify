@@ -19,6 +19,7 @@ import java.util.concurrent.Executors;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dhbk.android.spotify.R;
+import dhbk.android.spotify.adapters.TopArtistTracksAdapter;
 import kaaes.spotify.webapi.android.SpotifyApi;
 import kaaes.spotify.webapi.android.SpotifyService;
 import kaaes.spotify.webapi.android.models.Tracks;
