@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              xmlns:tools="http://schemas.android.com/tools"
 
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:padding="@dimen/general_padding">
+
+    <ImageView
+        android:id="@+id/artist_image"
+        android:layout_width="@dimen/artist_image_size"
+        android:layout_height="@dimen/artist_image_size"
+        android:padding="@dimen/artist_image_padding"
+        android:src="@mipmap/ic_launcher"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/artist_top_tracks_container_info_size"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/artist_song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/artist_info_padding"
+            android:textColor="@android:color/darker_gray"
+            tools:text="texto"
+            />
+
+        <TextView
+            android:id="@+id/artist_album_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/artist_info_padding"
+            android:textColor="@android:color/darker_gray"
+            tools:text="texto"
+
+            />
+    </LinearLayout>
 </LinearLayout>
