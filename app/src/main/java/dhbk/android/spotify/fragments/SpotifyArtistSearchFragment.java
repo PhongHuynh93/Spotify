@@ -17,10 +17,11 @@ import dhbk.android.spotify.adapters.ArtistSearchAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SpotifyArtistSearchFragment extends Fragment {
+public class SpotifyArtistSearchFragment extends  BaseListFragment {
 
 
     private OnSearchItemClickListener onSearchItemClickListener;
+    private ArtistSearchAdapter artistSearchAdapter;
 
     public SpotifyArtistSearchFragment() {
         // Required empty public constructor
