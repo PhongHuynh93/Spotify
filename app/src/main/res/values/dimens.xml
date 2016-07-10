@@ -14,7 +14,6 @@
     <dimen name="general_margin">15dp</dimen>
 
 
-
     <!-- Spotify Streamer Image Sizes-->
     <dimen name="artist_image_padding">10dp</dimen>
     <dimen name="artist_image_size">90dp</dimen>
@@ -27,7 +26,7 @@
     <dimen name="artist_info_height">45dp</dimen>
     <dimen name="artist_info_padding">3dp</dimen>
     <dimen name="error_text_size">13pt</dimen>
-    
+
     <!-- Spotify Player -->
     <dimen name="player_song_image_size">320dp</dimen>
     <dimen name="player_buttons_size">60dp</dimen>
