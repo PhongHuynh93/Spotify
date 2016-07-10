@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.fragments;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import dhbk.android.spotify.R;
 
 
 /**

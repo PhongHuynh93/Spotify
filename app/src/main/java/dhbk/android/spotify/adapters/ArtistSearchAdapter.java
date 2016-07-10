@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.adapters;
 
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dhbk.android.spotify.models.Artist;
+import dhbk.android.spotify.R;
 
 /**
  * Created by huynhducthanhphong on 7/10/16.

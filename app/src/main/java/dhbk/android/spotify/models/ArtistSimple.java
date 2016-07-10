@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.models;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.fragments;
 
 
 import android.content.Context;
@@ -8,6 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
+import dhbk.android.spotify.R;
+import dhbk.android.spotify.adapters.ArtistSearchAdapter;
 
 
 /**

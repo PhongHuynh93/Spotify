@@ -1,8 +1,10 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import dhbk.android.spotify.R;
 
 public class MainActivity extends BaseActivity {
 

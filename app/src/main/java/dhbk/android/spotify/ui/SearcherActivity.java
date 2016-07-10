@@ -1,8 +1,12 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import dhbk.android.spotify.R;
+import dhbk.android.spotify.fragments.TopArtistSongsFragment;
+import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
 
 public class SearcherActivity extends BaseActivity implements OnSearchItemClickListener {
 

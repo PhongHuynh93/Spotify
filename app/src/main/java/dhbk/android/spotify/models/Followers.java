@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.models;
 
 /**
  * Created by huynhducthanhphong on 7/10/16.

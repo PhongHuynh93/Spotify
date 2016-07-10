@@ -3,13 +3,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context=".TopArtistSongsActivity">
+              tools:context=".ui.TopArtistSongsActivity">
 
     <include layout="@layout/toolbar_widget"/>
 
     <fragment
         android:id="@+id/top_artist_songs_fragment"
-        android:name="dhbk.android.spotify.TopArtistSongsFragment"
+        android:name="dhbk.android.spotify.fragments.TopArtistSongsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_top_artist_songs"/>

@@ -1,4 +1,4 @@
-package dhbk.android.spotify;
+package dhbk.android.spotify.ui;
 
 import android.support.v7.app.AppCompatActivity;
 
