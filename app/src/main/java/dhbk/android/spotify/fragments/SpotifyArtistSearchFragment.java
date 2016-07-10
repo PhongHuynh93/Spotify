@@ -1,6 +1,7 @@
 package dhbk.android.spotify.fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,13 +19,14 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import butterknife.BindView;
-import butterknife.internal.Utils;
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.adapters.ArtistSearchAdapter;
 import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
 import dhbk.android.spotify.models.Artist;
+import dhbk.android.spotify.utils.Utils;
 
 
 /**
@@ -103,7 +105,6 @@ public class SpotifyArtistSearchFragment extends BaseListFragment {
         artistSearcher.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-
                 switch (actionId) {
                     case EditorInfo.IME_ACTION_SEARCH:
                         searchArtistAlbums(context, artistSearcher.getText().toString());
@@ -115,5 +116,49 @@ public class SpotifyArtistSearchFragment extends BaseListFragment {
             }
         });
     }
+
+    // search on spotify to find out artist album
+    private void searchArtistAlbums(Context context, String artist) {
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+        progressDialog.setMessage(getString(R.string.downloading_title));
+
+        SpotifyApi spotifyApi = new SpotifyApi(Executors.newSingleThreadExecutor(), new MainThreadExecutor());
+
+        SpotifyService spotifyService = spotifyApi.getService();
+        spotifyService.searchArtists(artist, new Callback<ArtistsPager>() {
+            @Override
+            public void success(final ArtistsPager artistsPager, Response response) {
+
+                if (response.getStatus() == 200) {
+                    if (artistsPager != null && getActivity() != null) {
+                        if (artistsPager.artists.items.size() > 0) {
+                            errorText.setVisibility(View.GONE);
+                            progressDialog.dismiss();
+                            artistSearchAdapter.setItems(artistsPager.artists.items);
+
+                        } else {
+                            artistSearchAdapter.clearData();
+                            progressDialog.dismiss();
+                            errorText.setVisibility(View.VISIBLE);
+                        }
+                    }
+                } else {
+                    progressDialog.dismiss();
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                error.printStackTrace();
+                progressDialog.dismiss();
+                errorText.setVisibility(View.VISIBLE);
+
+            }
+        });
+    }
+
 
 }
