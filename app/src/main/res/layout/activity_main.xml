@@ -1,11 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="dhbk.android.spotify.MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".MainActivity">
 
-</android.support.design.widget.CoordinatorLayout>
+    <include layout="@layout/toolbar_widget"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="@dimen/general_margin"
+        android:text="@string/main_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_dark"
+        android:onClick="onStartSpotifyStreamer"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/spotify_button_title"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_dark"
+        android:onClick="onStartScoresApp"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/scores_button_title"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_dark"
+        android:onClick="onStartLibraryApp"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/library_button_title"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_dark"
+        android:onClick="onStartBuildItBetter"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/bigger_button_title"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_dark"
+        android:onClick="onStartXYZReader"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/xyz_button_title"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/buttons_margin"
+        android:background="@color/primary_text"
+        android:onClick="onStartMyOwnApp"
+        android:padding="@dimen/buttons_padding"
+        android:text="@string/my_own_app_button_title"
+        android:textColor="@color/white"/>
+</LinearLayout>
