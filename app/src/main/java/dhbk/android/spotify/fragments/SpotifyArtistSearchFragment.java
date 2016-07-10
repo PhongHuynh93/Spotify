@@ -107,6 +107,21 @@ public class SpotifyArtistSearchFragment extends BaseListFragment {
         startArtistSearch((EditText) view.findViewById(R.id.search_spotify_streamer), view.getContext());
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getString("adapter_items") != null) {
+                Gson gson = new GsonBuilder().create();
+                Type artistAdapterType = new TypeToken<List<Artist>>() {
+                }.getType();
+                List<Artist> artistList = gson.fromJson(savedInstanceState.getString("adapter_items"), artistAdapterType);
+                artistSearchAdapter.setItems(artistList);
+            }
+        }
+    }
+
     // start search on internet
     private void startArtistSearch(final EditText artistSearcher, final Context context) {
         artistSearcher.setOnEditorActionListener(new TextView.OnEditorActionListener() {
