@@ -9,9 +9,9 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.leo.nanodegree.fragments.SpotifyArtistSearchFragment"
+        android:name="dhbk.android.spotify.SpotifyArtistSearchFragment"
         android:id="@+id/fragment"
         android:layout_gravity="center_horizontal"
-        tools:layout="@layout/spotify_search_fragment" />
+        tools:layout="@layout/fragment_spotify_artist_search" />
 
 </LinearLayout>
