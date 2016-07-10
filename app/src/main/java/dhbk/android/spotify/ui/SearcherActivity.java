@@ -2,19 +2,22 @@ package dhbk.android.spotify.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.fragments.TopArtistSongsFragment;
 import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
 
 public class SearcherActivity extends BaseActivity implements OnSearchItemClickListener {
+    @Override
+    int contentViewId() {
+        return R.layout.activity_searcher;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searcher);
+    boolean activateBackButton() {
+        return false;
     }
+
 
     @Override
     public void onSearchItemClick(String artistId) {
