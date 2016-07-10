@@ -1,9 +1,8 @@
 package dhbk.android.spotify;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SearcherActivity extends AppCompatActivity {
+public class SearcherActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
