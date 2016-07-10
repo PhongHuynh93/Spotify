@@ -5,19 +5,26 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.EditText;
 
-import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
 import dhbk.android.spotify.R;
 import dhbk.android.spotify.adapters.ArtistSearchAdapter;
+import dhbk.android.spotify.interfaces.OnSearchItemClickListener;
+import dhbk.android.spotify.models.Artist;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SpotifyArtistSearchFragment extends  BaseListFragment {
+public class SpotifyArtistSearchFragment extends BaseListFragment {
 
 
     private OnSearchItemClickListener onSearchItemClickListener;
@@ -50,10 +57,33 @@ public class SpotifyArtistSearchFragment extends  BaseListFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_spotify_artist_search, container, false);
+    protected boolean activateRetainInstance() {
+        return true;
     }
 
+    // TODO: 7/10/16 this call onCreateView in baseFragment
+    @Override
+    protected int fragmentLayoutResource() {
+        return R.layout.fragment_spotify_artist_search;
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        Gson gson = new GsonBuilder().create();
+        Type artistAdapterType = new TypeToken<List<Artist>>() {
+        }.getType();
+        String adapterItems = gson.toJson(artistSearchAdapter.getItems(), artistAdapterType);
+        outState.putString("adapter_items", adapterItems);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        artistAlbumsList.setAdapter(artistSearchAdapter);
+        startArtistSearch((EditText) view.findViewById(R.id.search_spotify_streamer), view.getContext());
+    }
 }
