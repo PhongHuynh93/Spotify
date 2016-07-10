@@ -26,4 +26,7 @@ public class TopArtistSongsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_top_artist_songs, container, false);
     }
 
+    public void onSearchArtistTopTracks(String artistId) {
+
+    }
 }
