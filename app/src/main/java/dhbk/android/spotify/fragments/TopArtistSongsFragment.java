@@ -3,16 +3,21 @@ package dhbk.android.spotify.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Executors;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dhbk.android.spotify.R;
 import kaaes.spotify.webapi.android.SpotifyApi;
 import kaaes.spotify.webapi.android.SpotifyService;
@@ -29,16 +34,33 @@ import retrofit.client.Response;
 public class TopArtistSongsFragment extends Fragment {
 
 
+    @BindView(R.id.top_artist_songs_list)
+    ListView topArtistSongsList;
+    @BindView(R.id.top_track_error_text)
+    TextView errorText;
+    private TopArtistTracksAdapter topArtistSongsAdapter;
+
+    public TopArtistSongsFragment newInstance() {
+        return new TopArtistSongsFragment();
+    }
     public TopArtistSongsFragment() {
         // Required empty public constructor
     }
 
+    // declare adapter
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        topArtistSongsAdapter = new TopArtistTracksAdapter();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_artist_songs, container, false);
+        View view = inflater.inflate(R.layout.fragment_top_artist_songs, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
     // TODO: 7/10/16 after search list of artist, listen when click a particle artist, open a top strack of that artist
